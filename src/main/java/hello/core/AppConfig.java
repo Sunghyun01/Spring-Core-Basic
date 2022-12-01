@@ -16,12 +16,12 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
     @Bean
     public MemberService memberService() {
-        return new MemberServiceImpl(new MemoryMemberRepository());
+        return new MemberServiceImpl(memberRepository());
     }
     @Bean
     public OrderService orderService() {
         return new OrderServiceImpl(
-                new MemoryMemberRepository(),
+                memberRepository(),
                 new FixDiscountPolicy());
     }
 

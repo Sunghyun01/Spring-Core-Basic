@@ -6,10 +6,15 @@ import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 
 public class OrderServiceImpl implements OrderService{
-    private MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
-    private DiscountPolicy discountPolicy;
+    private final DiscountPolicy discountPolicy;
+
+    //테스트 용도
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 
     public OrderServiceImpl(MemberRepository memberRepository, FixDiscountPolicy fixDiscountPolicy) {
         this.memberRepository = memberRepository;
